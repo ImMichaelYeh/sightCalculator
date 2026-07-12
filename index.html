@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sight Calculator</title>
+  <title>Target Archery Sight Calculator</title>
   <link rel="stylesheet" href="style.css">
   <script src="calculator.js" defer></script>
 </head>
@@ -11,7 +11,7 @@
   <main class="app-shell">
     <header>
       <div>
-        <h1>Sight Calculator</h1>
+        <h1>Target Archery Sight Calculator</h1>
         <p>Calculate the sight adjustment needed to center your arrow group.</p>
       </div>
       <div class="header-actions">
@@ -28,12 +28,12 @@
         <div class="field-list">
           <div class="field-row">
             <label for="elevationTextBox">1 click adjusts the elevation by</label>
-            <input type="number" step="any" id="elevationTextBox" name="elevationTextBox">
+            <input type="number" step="any" id="elevationTextBox" name="elevationTextBox" value="0.0396875">
             <span class="unit-options"><input type="radio" id="elevationUnitsMillimeters" name="elevationUnits" value="mm" checked><label for="elevationUnitsMillimeters">mm</label><input type="radio" id="elevationUnitsInches" name="elevationUnits" value="in"><label for="elevationUnitsInches">in</label></span>
           </div>
           <div class="field-row">
             <label for="windageTextBox">1 click adjusts the windage by</label>
-            <input type="number" step="any" id="windageTextBox" name="windageTextBox">
+            <input type="number" step="any" id="windageTextBox" name="windageTextBox" value="0.0396875">
             <span class="unit-options"><input type="radio" id="windageUnitsMillimeters" name="windageUnits" value="mm" checked><label for="windageUnitsMillimeters">mm</label><input type="radio" id="windageUnitsInches" name="windageUnits" value="in"><label for="windageUnitsInches">in</label></span>
           </div>
         </div>
@@ -45,12 +45,12 @@
         <div class="field-list">
           <div class="field-row">
             <label for="shootingDistanceTextBox">Shooting distance</label>
-            <input type="number" step="any" id="shootingDistanceTextBox" name="shootingDistanceTextBox">
+            <input type="number" step="any" id="shootingDistanceTextBox" name="shootingDistanceTextBox" value="18">
             <span class="unit-options"><input type="radio" id="shootingDistanceUnitsMeters" name="shootingDistanceUnits" value="meters" checked><label for="shootingDistanceUnitsMeters">meters</label><input type="radio" id="shootingDistanceUnitsYards" name="shootingDistanceUnits" value="yards"><label for="shootingDistanceUnitsYards">yards</label></span>
           </div>
           <div class="field-row">
-            <label for="eyeToSightDistanceTextBox">Eye to sight distance</label>
-            <input type="number" step="any" id="eyeToSightDistanceTextBox" name="eyeToSightDistanceTextBox">
+            <label for="eyeToSightDistanceTextBox">Eye or peep to sight distance</label>
+            <input type="number" step="any" id="eyeToSightDistanceTextBox" name="eyeToSightDistanceTextBox" value="83.2">
             <span class="unit-options"><input type="radio" id="eyeToSightDistanceUnitsCentimeters" name="eyeToSightDistanceUnits" value="cm" checked><label for="eyeToSightDistanceUnitsCentimeters">cm</label><input type="radio" id="eyeToSightDistanceUnitsInches" name="eyeToSightDistanceUnits" value="in"><label for="eyeToSightDistanceUnitsInches">in</label></span>
           </div>
         </div>
@@ -62,12 +62,12 @@
         <div class="field-list">
           <div class="field-row">
             <label for="arrowElevationTextBox">Arrow elevation from center</label>
-            <input type="number" step="any" id="arrowElevationTextBox" name="arrowElevationTextBox">
+            <input type="number" step="any" id="arrowElevationTextBox" name="arrowElevationTextBox" value="1">
             <span class="unit-options"><input type="radio" id="arrowElevationUnitsCentimeters" name="arrowElevationUnits" value="cm" checked><label for="arrowElevationUnitsCentimeters">cm</label><input type="radio" id="arrowElevationInches" name="arrowElevationUnits" value="in"><label for="arrowElevationInches">in</label></span>
           </div>
           <div class="field-row">
             <label for="arrowWindageTextBox">Arrow windage from center</label>
-            <input type="number" step="any" id="arrowWindageTextBox" name="arrowWindageTextBox">
+            <input type="number" step="any" id="arrowWindageTextBox" name="arrowWindageTextBox" value="1">
             <span class="unit-options"><input type="radio" id="arrowWindageUnitsCentimeters" name="arrowWindageUnits" value="cm" checked><label for="arrowWindageUnitsCentimeters">cm</label><input type="radio" id="arrowWindageUnitsInches" name="arrowWindageUnits" value="in"><label for="arrowWindageUnitsInches">in</label></span>
           </div>
         </div>
