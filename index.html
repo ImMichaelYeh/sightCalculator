@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Sight Calculator Site V1.1.0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="../css/portfolio.css">
+    <script src="calculator.js" async></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- FORCE DESKTOP VIEW -->
+    <meta name="viewport" content="width=1024">
+</head>
+    
+<body style="margin-bottom: 1%;">
+    <!-- NAV BAR -->
+    <nav class="navbar navbar-expand-sm bg-transparent navbar-dark">
+        <ul class="navbar-nav">
+
+            <a class="navbar-brand" href="../index.html">
+                <h1>
+                    Michael Yeh
+                </h1>
+            </a>
+
+            <li class="nav-item">
+                <a class="nav-link" href="index.html">
+                    PORTFOLIO
+                </a>
+            </li>
+
+            <!-- MAKE SURE UPDATES ARE CONSISTENT ACROSS PAGES-->
+            <li class="nav-item">
+                <a class="nav-link" href="files/resume.pdf" target="_blank">
+                    RESUME
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div style="margin-left: 1%;">
+        <h1 style="color: goldenrod">Sight Calculator Site</h1>
+        <text style="color: white">The purpose of this site is to calculate how much you have to move your sight in order to center your arrow group.</text>
+        
+        <h2 style="color: goldenrod">Sight Information</h2>
+        <text style="color: white">Here you will input information about your sight:</text>
+        <form>
+            <li style="color: white">
+                <label for="elevationTextBox">1 click adjusts the elevation by</label>
+                <input type="text" id="elevationTextBox" name="elevationTextBox">
+                <input type="radio" id="elevationUnitsMillimeters" name="elevationUnits" value="mm" checked="true">
+                <label for="elevationUnitsMillimeters">mm</label>
+                <input type="radio" id="elevationUnitsInches" name="elevationUnits" value="in">
+                <label for="elevationUnitsInches">in</label><br>
+            </li>
+
+            <li style="color: white">
+                <label for="windageTextBox">1 click adjusts the windage by</label>
+                <input type="text" id="windageTextBox" name="windageTextBox">
+                <input type="radio" id="windageUnitsMillimeters" name="windageUnits" value="mm" checked=true>
+                <label for="windageUnitsMillimeters">mm</label>
+                <input type="radio" id="windageUnitsInches" name="windageUnits" value="in">
+                <label for="windageUnitsInches">in</label><br>
+            </li>
+        </form>
+
+        <h2 style="color: goldenrod">Shooting Information</h2>
+        <text style="color: white">Input information about the shooting scenario:</text>
+        <form>
+            <li style="color: white">
+                <label for="shootingDistanceTextBox">Shooting distance</label>
+                <input type="text" id="shootingDistanceTextBox" name="shootingDistanceTextBox">
+                <input type="radio" id="shootingDistanceUnitsMeters" name="shootingDistanceUnits" value="meters" checked=true>
+                <label for="shootingDistanceUnitsMeters">meters</label>
+                <input type="radio" id="shootingDistanceUnitsYards" name="shootingDistanceUnits" value="yards">
+                <label for="shootingDistanceUnitsYards">yards</label><br>
+            </li>
+
+            <li style="color: white">
+                <label for="eyeToSightDistanceTextBox">Eye to sight distance</label>
+                <input type="text" id="eyeToSightDistanceTextBox" name="eyeToSightDistanceTextBox">
+                <input type="radio" id="eyeToSightDistanceUnitsCentimeters" name="eyeToSightDistanceUnits" value="cm" checked=true>
+                <label for="eyeToSightDistanceUnitsCentimeters">cm</label>
+                <input type="radio" id="eyeToSightDistanceUnitsInches" name="eyeToSightDistanceUnits" value="in">
+                <label for="eyeToSightDistanceUnitsInches">in</label><br>
+            </li>
+        </form>
+
+        <h2 style="color: goldenrod">Shot Information</h2>
+        <text style="color: white">Input information about the shot (negative value = under/left, positive value = above/right)</text>
+        <form>
+            <li style="color: white">
+                <label for="arrowElevationTextBox">Arrow elevation from center</label>
+                <input type="text" id="arrowElevationTextBox" name="arrowElevationTextBox">
+                <input type="radio" id="arrowElevationUnitsCentimeters" name="arrowElevationUnits" value="cm" checked=true>
+                <label for="arrowElevationUnitsCentimeters">cm</label>
+                <input type="radio" id="arrowElevationInches" name="arrowElevationUnits" value="in">
+                <label for="arrowElevationInches">in</label><br>
+            </li style="color: white">
+
+            <li style="color: white">
+                <label for="arrowWindageTextBox">Arrow windage from center </label>
+                <input type="text" id="arrowWindageTextBox" name="arrowWindageTextBox">
+                <input type="radio" id="arrowWindageUnitsCentimeters" name="arrowWindageUnits" value="cm" checked=true>
+                <label for="arrowWindageUnitsCentimeters">cm</label>
+                <input type="radio" id="arrowWindageUnitsInches" name="arrowWindageUnits" value="in">
+                <label for="arrowWindageUnitsInches">in</label><br>
+            </li style="color: white">
+        </form>
+
+        <h2 style="color: goldenrod">Results</h2>
+        <p id="elevationResultText" style="color: white"></p> 
+        <p id="windageResultText" style="color: white"></p> 
+        <button id="calculateButton" onclick="calculate();">Calculate</button>
+    </div>
+
+    <footer>
+        <!--NAVBAR-->
+        <nav class="navbar fixed-bottom navbar-transparent bg-transparent">
+            <div class="small" style="color: gainsboro;">
+                Michael Yeh &copy; 
+                <text id="footerYear">
+                    2222
+                </text> 
+                <text>
+                    Mathematics & Computer Science
+                </text>
+            </div>
+        </nav>
+    </footer>
+
+    <!-- SET FOOTER YEAR -->
+    <script>
+        document.getElementById("footerYear").textContent = new Date().getFullYear();
+    </script>
+</body>
+    
+<!-- DISCLAIMER: I don't know HTML style conventions yet! haha -->
