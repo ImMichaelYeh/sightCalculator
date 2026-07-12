@@ -1,4 +1,67 @@
-document.getElementById("footerYear").textContent = new Date().getFullYear();
+const STORAGE_KEY = "sight-calculator-save";
+const FIELD_SELECTOR = ".calculator-form input";
+let saveTimer;
+
+function getSaveData() {
+    return Object.fromEntries([...document.querySelectorAll(FIELD_SELECTOR)].map((field) => [field.id, field.type === "radio" ? field.checked : field.value]));
+}
+
+function applySaveData(data) {
+    if (!data || typeof data !== "object") throw new Error("Invalid save file.");
+    document.querySelectorAll(FIELD_SELECTOR).forEach((field) => {
+        if (!(field.id in data)) return;
+        if (field.type === "radio") field.checked = Boolean(data[field.id]);
+        else field.value = data[field.id];
+    });
+}
+
+function showSaved(message = "Saved") {
+    const status = document.getElementById("saveStatus");
+    status.textContent = message;
+    status.classList.add("visible");
+    setTimeout(() => status.classList.remove("visible"), 1400);
+}
+
+function save() {
+    try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(getSaveData()));
+        showSaved();
+    } catch { /* Saving is optional when browser storage is unavailable. */ }
+}
+
+function queueSave() {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(save, 150);
+}
+
+function downloadSaveFile() {
+    const file = new Blob([JSON.stringify(getSaveData(), null, 2)], { type: "application/json" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(file);
+    link.download = "sight-calculator-save.json";
+    link.click();
+    URL.revokeObjectURL(link.href);
+}
+
+document.querySelectorAll(FIELD_SELECTOR).forEach((field) => field.addEventListener("input", queueSave));
+document.querySelectorAll(FIELD_SELECTOR).forEach((field) => field.addEventListener("change", queueSave));
+document.getElementById("downloadSaveButton").addEventListener("click", downloadSaveFile);
+document.getElementById("importSaveInput").addEventListener("change", async (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
+    try {
+        applySaveData(JSON.parse(await file.text()));
+        save();
+        showSaved("Imported");
+    } catch {
+        showSaved("Invalid save file");
+    }
+    event.target.value = "";
+});
+
+try {
+    applySaveData(JSON.parse(localStorage.getItem(STORAGE_KEY)));
+} catch { /* No saved data yet. */ }
 
 function calculate() {
     console.log("INPUT:");
