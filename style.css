@@ -12,17 +12,18 @@
   --gold: #ffcd00;
   --gold-dark: #c69214;
   --content-width: 1600px;
+  --site-brand-offset: max(2rem, calc((100vw - var(--content-width)) / 2 + 2rem));
 }
 
 * { box-sizing: border-box; }
 body { margin: 0; min-height: 100vh; background: #0b2945; }
 button, input { font: inherit; }
-.site-nav { display: flex; justify-content: space-between; align-items: center; min-height: 72px; padding: 1rem max(1.25rem, calc((100% - var(--content-width)) / 2)); background: var(--navy-950); }
+.site-nav { display: flex; justify-content: space-between; align-items: center; min-height: 72px; padding: 1rem var(--site-brand-offset); background: var(--navy-950); }
 .site-brand, h1, h2 { font-family: Georgia, "Times New Roman", serif; }
 .site-brand { color: #fff; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; letter-spacing: -0.03em; text-decoration: none; }
 .portfolio-link { color: rgba(255, 255, 255, 0.78); font-size: .85rem; font-weight: 800; letter-spacing: .11em; text-decoration: none; text-transform: uppercase; }
 .portfolio-link:hover, .portfolio-link:focus { color: var(--gold); }
-.app-shell { width: min(100% - 32px, var(--content-width)); margin: 0 auto; padding: clamp(32px, 7vw, 72px) 0 24px; }
+.app-shell { width: min(100% - 4rem, var(--content-width)); margin: 0 auto; padding: clamp(32px, 7vw, 72px) 0 24px; }
 header { display: flex; justify-content: space-between; align-items: start; gap: 16px; margin-bottom: 24px; }
 h1, h2 { margin: 0; }
 h1 { color: #fff; font-size: clamp(2rem, 5vw, 2.75rem); letter-spacing: -0.04em; }
@@ -49,3 +50,4 @@ button:hover { background: #ffe36a; }
 .save-status.visible { opacity: 1; }
 footer { padding: 0 16px 24px; color: var(--muted); font-size: .9rem; text-align: center; }
 @media (max-width: 640px) { header { flex-direction: column; } .header-actions { justify-content: flex-start; } .field-row { grid-template-columns: minmax(0, 1fr) 112px auto; gap: 8px; } .unit-options { min-height: 28px; } button { width: 100%; } .header-actions button, .button-like { width: auto; } }
+@media (max-width: 575.98px) { :root { --site-brand-offset: 1.25rem; } .app-shell { width: calc(100% - 2.5rem); } }
