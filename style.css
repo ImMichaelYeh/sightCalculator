@@ -11,17 +11,18 @@
   --muted: #b7c9d8;
   --gold: #ffcd00;
   --gold-dark: #c69214;
+  --content-width: 1600px;
 }
 
 * { box-sizing: border-box; }
 body { margin: 0; min-height: 100vh; background: #0b2945; }
 button, input { font: inherit; }
-.site-nav { display: flex; justify-content: space-between; align-items: center; min-height: 72px; padding: 1rem max(1.25rem, calc((100% - 1120px) / 2)); background: var(--navy-950); }
+.site-nav { display: flex; justify-content: space-between; align-items: center; min-height: 72px; padding: 1rem max(1.25rem, calc((100% - var(--content-width)) / 2)); background: var(--navy-950); }
 .site-brand, h1, h2 { font-family: Georgia, "Times New Roman", serif; }
 .site-brand { color: #fff; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; letter-spacing: -0.03em; text-decoration: none; }
 .portfolio-link { color: rgba(255, 255, 255, 0.78); font-size: .85rem; font-weight: 800; letter-spacing: .11em; text-decoration: none; text-transform: uppercase; }
 .portfolio-link:hover, .portfolio-link:focus { color: var(--gold); }
-.app-shell { width: min(100% - 32px, 900px); margin: 0 auto; padding: clamp(32px, 7vw, 72px) 0 24px; }
+.app-shell { width: min(100% - 32px, var(--content-width)); margin: 0 auto; padding: clamp(32px, 7vw, 72px) 0 24px; }
 header { display: flex; justify-content: space-between; align-items: start; gap: 16px; margin-bottom: 24px; }
 h1, h2 { margin: 0; }
 h1 { color: #fff; font-size: clamp(2rem, 5vw, 2.75rem); letter-spacing: -0.04em; }
