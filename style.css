@@ -23,7 +23,7 @@ button, input { font: inherit; }
 .site-brand { color: #fff; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; letter-spacing: -0.03em; text-decoration: none; }
 .portfolio-link { color: rgba(255, 255, 255, 0.78); font-size: .85rem; font-weight: 800; letter-spacing: .11em; text-decoration: none; text-transform: uppercase; }
 .portfolio-link:hover, .portfolio-link:focus { color: var(--gold); }
-.app-shell { width: min(100% - 4rem, var(--content-width)); margin: 0 auto; padding: clamp(32px, 7vw, 72px) 0 24px; }
+.app-shell { width: min(100% - 4rem, var(--content-width)); margin: 0 auto; padding: 1.5rem 0 24px; }
 header { display: flex; justify-content: space-between; align-items: start; gap: 16px; margin-bottom: 24px; }
 h1, h2 { margin: 0; }
 h1 { color: #fff; font-size: clamp(2rem, 5vw, 2.75rem); letter-spacing: -0.04em; }
@@ -43,8 +43,10 @@ input[type="number"]:focus-visible, button:focus-visible, input[type="radio"]:fo
 button { margin-top: 18px; padding: 11px 14px; border: 0; border-radius: 6px; background: var(--gold); color: var(--navy-950); cursor: pointer; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
 button:hover { background: #ffe36a; }
 .header-actions { display: flex; justify-content: flex-end; align-items: center; gap: 8px; flex-wrap: wrap; }
-.header-actions button, .button-like { margin: 0; padding: 10px 12px; border: 1px solid var(--border); border-radius: 6px; background: transparent; color: var(--ink); cursor: pointer; font-size: .78rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
-.header-actions button:hover, .button-like:hover { color: var(--navy-950); background: #fff; border-color: #fff; }
+.header-actions button, .button-like { margin: 0; padding: 10px 12px; border: 0; border-radius: 6px; background: var(--gold); color: var(--navy-950); cursor: pointer; font-size: .78rem; font-weight: 800; text-transform: capitalize; }
+.button-like { border: 1px solid var(--border); background: var(--navy-900); color: var(--ink); }
+.header-actions button:hover { background: #ffe36a; }
+.button-like:hover { border-color: var(--border); background: var(--navy-900); color: var(--ink); }
 .button-like input { display: none; }
 .save-status { color: var(--gold); font-size: .85rem; font-weight: 600; opacity: 0; transition: opacity .2s; }
 .save-status.visible { opacity: 1; }
